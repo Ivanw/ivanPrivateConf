@@ -1,4 +1,13 @@
 #!/bin/bash
+# If u have a new c++ lib, copy the lib to cpp_src_x.x and copy this command to cpp_src_x.x directory
+# >> cp -rf /usr/include/c++/4.8 ~/.vim/tagfiles/cpp_src_4.8
+# >> ./genModifiedHeader.sh
+# >> mv tags /to/your/tag/path
+
+# STL code using lots of macro defination like _GLIBCXX_BEGIN_NAMESPACE instead of namespace.
+# So ctags would get the wrong syntax of CPP in result the OmniCppComplete won't work.
+# This shell would not affect the compiler, just modified your own copy of the lib code.
+
 if [ $# -eq 0 ];then
     dir=.
 else
@@ -37,5 +46,6 @@ done
 echo "Processed $count files!"
 rm -fr $tmp
 # Generate ctag file
-ctags -R --c++-kinds=+p --fields=+iaS --extra=+q 
+
+ctags -R --sort=1 --c++-kinds=+p --fields=+ialS --extra=+q --language-force=c++ .
 echo "generated tag file!"
