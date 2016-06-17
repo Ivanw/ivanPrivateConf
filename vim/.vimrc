@@ -104,7 +104,7 @@
     let Tlist_Process_File_Always=1 "
     let Tlist_Inc_Winwidth=0
 
-    map <F5> :!ctags -R --sort --c++-kinds=+p --fields=+ialS --extra=+q .<CR>
+    map <F5> :!ctags -R --sort=1 --c++-kinds=+p --fields=+ialS --extra=+q .<CR>
     "	source ~/.vim/my.vim
 
 
