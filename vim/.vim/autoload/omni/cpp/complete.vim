@@ -9,10 +9,6 @@ if v:version < 700
     finish
 endif
 
-if exists("loaded_omnicppcomplete")
-  finish
-endif
-
 call omni#cpp#settings#Init()
 let s:OmniCpp_ShowScopeInAbbr = g:OmniCpp_ShowScopeInAbbr
 let s:OmniCpp_ShowPrototypeInAbbr = g:OmniCpp_ShowPrototypeInAbbr
